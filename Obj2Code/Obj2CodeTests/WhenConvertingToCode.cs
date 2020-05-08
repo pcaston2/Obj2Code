@@ -27,8 +27,6 @@ namespace Obj2CodeTests
             DateTime dt = DateTime.Parse(expectedDate);
             var resultDate = dt.ToUniversalTime().ToString("u");
             expectedDate.ShouldEqual(resultDate);
-
-
         }
     }
 }
