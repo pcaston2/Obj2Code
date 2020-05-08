@@ -12,7 +12,7 @@ namespace Obj2Code
         public static string ToCode(object classToConvert)
         {
             Type typeToConvert = classToConvert.GetType();
-            if (HasConstructor(typeToConvert))
+            if (HasDefaultConstructor(typeToConvert))
             {
                 StringBuilder s = new StringBuilder();
 
@@ -37,18 +37,23 @@ namespace Obj2Code
                             var methodType = value.GetType();
                             if (methodType.Equals(typeof(string)))
                             {
-                                s.Append("\"");
-                                s.Append(value);
-                                s.Append("\"");
+                                if (value == null)
+                                {
+                                    s.Append("null");
+                                } else {
+                                    s.Append("\"");
+                                    s.Append(value);
+                                    s.Append("\"");
+                                }
                             }
                             else if (methodType.Equals(typeof(DateTime)))
                             {
                                 DateTime dateTime = (DateTime)value;
                                 s.Append("DateTime.Parse(\"");
-                                s.Append(dateTime.ToString("u"));
+                                s.Append(dateTime.ToUniversalTime().ToString("u"));
                                 s.Append("\")");
                             }
-                            else
+                            else if (methodType.Equals(typeof(int)))
                             {
                                 s.Append(value);
                             }
@@ -67,7 +72,7 @@ namespace Obj2Code
         }
 
 
-        private static bool HasConstructor(Type typeToConvert)
+        private static bool HasDefaultConstructor(Type typeToConvert)
         {
             return typeToConvert.GetConstructor(Type.EmptyTypes) != null;
         }

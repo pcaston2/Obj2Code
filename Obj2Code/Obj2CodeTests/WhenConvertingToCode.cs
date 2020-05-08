@@ -19,5 +19,16 @@ namespace Obj2CodeTests
             var result = Obj2Coder.ToCode(easyClass);
             result.ShouldEqual("new EasyClass() { Id = 5, Name = \"Phil\", StartDate = DateTime.Parse(\"2009-06-15 13:45:30Z\"), };");
         }
+
+        [Fact]
+        public void Should_Restore_Date()
+        {
+            var expectedDate = "2009-06-15 13:45:30Z";
+            DateTime dt = DateTime.Parse(expectedDate);
+            var resultDate = dt.ToUniversalTime().ToString("u");
+            expectedDate.ShouldEqual(resultDate);
+
+
+        }
     }
 }
