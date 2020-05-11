@@ -17,7 +17,7 @@ namespace Obj2CodeTests
         {
             var easyClass = new EasyClass() { Id = 5, Name = "Phil", StartDate = DateTime.Parse("2009-06-15 13:45:30Z"), };
             var result = Obj2Coder.ToCode(easyClass);
-            result.ShouldEqual("new EasyClass() { Id = 5, Name = \"Phil\", StartDate = DateTime.Parse(\"2009-06-15 13:45:30Z\"), };");
+            result.ShouldEqual("new Obj2CodeTests.TestClasses.EasyClass() { Id = 5, Name = \"Phil\", StartDate = DateTime.Parse(\"2009-06-15 13:45:30Z\"), }");
         }
 
         [Fact]
