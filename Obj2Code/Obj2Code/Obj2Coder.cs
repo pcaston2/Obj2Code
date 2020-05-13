@@ -12,6 +12,7 @@ namespace Obj2Code
 
         private static Dictionary<Type, int> fieldOrdering = new Dictionary<Type, int>() {
             {typeof(int), 1 },
+            {typeof(short), 1 },
             {typeof(string), 2 },
             {typeof(DateTime), 3 }
         };

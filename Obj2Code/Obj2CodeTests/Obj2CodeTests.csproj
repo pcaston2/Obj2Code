@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestClasses\ShortEasyClass.cs" />
     <Compile Include="TestClasses\EasyClass.cs" />
     <Compile Include="WhenConvertingToCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
