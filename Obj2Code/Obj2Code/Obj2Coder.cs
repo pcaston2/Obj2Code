@@ -83,7 +83,7 @@ namespace Obj2Code
                                     s.Append("\")");
                                     s.Append(", ");
                                 }
-                                else if (methodType.Equals(typeof(int)))
+                                else if (methodType.Equals(typeof(int)) || methodType.Equals(typeof(short)))
                                 {
                                     s.Append(propertyName);
                                     s.Append(value);
