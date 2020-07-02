@@ -7,11 +7,23 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
 
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+# The first task is the dotnet command build, pointing to our csproj file
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
+    projects: 'Obj2Code/Obj2Code/Obj2Code/Obj2Code.csproj'
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
