@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Obj2Code
 {
@@ -13,8 +12,12 @@ namespace Obj2Code
         private static Dictionary<Type, int> fieldOrdering = new Dictionary<Type, int>() {
             {typeof(int), 1 },
             {typeof(short), 1 },
+            {typeof(int?), 1 },
+            {typeof(short?), 1 },
             {typeof(string), 2 },
-            {typeof(DateTime), 3 }
+            {typeof(DateTime), 3 },
+            {typeof(bool), 4 },
+            {typeof(bool?), 4 },
         };
 
 
@@ -84,7 +87,7 @@ namespace Obj2Code
                                     s.Append("\")");
                                     s.Append(", ");
                                 }
-                                else if (methodType.Equals(typeof(int)) || methodType.Equals(typeof(short)))
+                                else
                                 {
                                     s.Append(propertyName);
                                     s.Append(value);
