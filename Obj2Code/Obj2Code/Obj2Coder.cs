@@ -16,6 +16,7 @@ namespace Obj2Code
             {typeof(short?), 1 },
             {typeof(string), 2 },
             {typeof(DateTime), 3 },
+            {typeof(DateTime?), 3 },
             {typeof(bool), 4 },
             {typeof(bool?), 4 },
         };

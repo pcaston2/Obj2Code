@@ -49,6 +49,14 @@ namespace Obj2CodeTests
         }
 
         [Fact]
+        public void Should_Convert_Nullable_DateTime_To_Code()
+        {
+            var easyClass = new NullableDateEasyClass() { StartDate = null, };
+            var result = Obj2Coder.ToCode(easyClass);
+            result.ShouldEqual("new Obj2CodeTests.TestClasses.NullableDateEasyClass() { StartDate = null, }");
+        }
+
+        [Fact]
         public void Should_Restore_Date()
         {
             var expectedDate = "2009-06-15 13:45:30Z";

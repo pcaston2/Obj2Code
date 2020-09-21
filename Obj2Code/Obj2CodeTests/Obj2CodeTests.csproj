@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestClasses\NullableDateEasyClass.cs" />
     <Compile Include="TestClasses\NullableIntEasyClass.cs" />
     <Compile Include="TestClasses\NullableBooleanEasyClass.cs" />
     <Compile Include="TestClasses\BooleanEasyClass.cs" />
